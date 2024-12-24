@@ -7,7 +7,10 @@ import CopyButton from './CopyButton';
 import 'prismjs/components/prism-kusto';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 import 'prismjs/plugins/keep-markup/prism-keep-markup.js';
+import 'prismjs/plugins/toolbar/prism-toolbar.min';
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min';
 
+import 'prismjs/plugins/toolbar/prism-toolbar.min.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import 'prismjs/themes/prism-okaidia.css';
 import 'react-contexify/dist/ReactContexify.css';
@@ -26,8 +29,10 @@ function KustoCodeBlock({ code, showLineNumbers = false }) {
     <div className="code-block-container">
       <pre>
         <code
+          data-prismjs-copy="" // remove the word "copy"
           className={`language-kusto keep-markup ${
             // TODO: fix  code-content
+
             showLineNumbers ? 'line-numbers ' : ''
           }`}
           dangerouslySetInnerHTML={{ __html: code }}
