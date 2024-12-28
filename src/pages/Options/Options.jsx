@@ -2,7 +2,7 @@ import React from 'react';
 
 import useExecutedQueries from '../../hooks/useExecutedQueries';
 
-import CodeBlockList from '../../components/CodeBlockList';
+import CodeBlockTable from '../../components/CodeBlockTable';
 
 import './Options.css';
 
@@ -19,6 +19,7 @@ const Options = ({ title }) => {
     updateMaxQueriesToShow(newValue);
   };
 
+  console.log('executedQueries', executedQueries);
   const setFrequencyAsTitle = (query) => {
     return { title: `Execution Count: ${query.frequency}`, query: query.query };
   };
@@ -26,8 +27,8 @@ const Options = ({ title }) => {
   return (
     <>
       <div className="options-container">
-        <h1>Executed Queries</h1>
         <span className="header">
+          <h1>Executed Queries</h1>
           <label htmlFor="maxQueries" className="max-queries">
             Limit:
           </label>
@@ -41,7 +42,7 @@ const Options = ({ title }) => {
           />
         </span>
 
-        <CodeBlockList codes={executedQueries.map(setFrequencyAsTitle)} />
+        <CodeBlockTable codes={executedQueries.map(setFrequencyAsTitle)} />
       </div>
     </>
   );

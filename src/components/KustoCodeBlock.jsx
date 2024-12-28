@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import Prism from 'prismjs';
 import { Menu, Item, useContextMenu } from 'react-contexify';
 
-import CopyButton from './CopyButton';
+import { BsClipboard } from 'react-icons/bs';
 
 import 'prismjs/components/prism-kusto';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
@@ -29,7 +29,8 @@ function KustoCodeBlock({ code, showLineNumbers = false }) {
     <div className="code-block-container">
       <pre>
         <code
-          data-prismjs-copy="" // remove the word "copy"
+          // data-prismjs-copy="" // override the word "Copy"
+          // data-prismjs-copy-success="" // override the word "Copied!"
           className={`language-kusto keep-markup ${
             // TODO: fix  code-content
 
