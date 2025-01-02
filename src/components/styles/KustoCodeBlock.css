@@ -58,7 +58,10 @@
   padding: 0 1rem;
 }
 
-/* items with both class delete and menu-item */
+.menu-item.copy {
+  background-color: rgba(229, 231, 235, 1);
+  /* border-radius: 0.375rem; */
+}
 .menu-item.delete {
   background-color: rgba(255, 0, 0, 0.3);
 }

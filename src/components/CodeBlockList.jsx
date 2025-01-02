@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react';
 
+import { useCopyToClipboard } from '@uidotdev/usehooks';
+
 import Divider from '@mui/material/Divider';
 
 import useDebouncedValue from '../hooks/useDebouncedValue';
@@ -10,6 +12,7 @@ import './styles/CodeBlockList.css';
 
 function CodeBlockList({ codes = [], onDeleteUserQuery }) {
   const [searchText, setSearchText] = useState('');
+  const [copiedText, copyToClipboard] = useCopyToClipboard();
 
   const debouncedSearchText = useDebouncedValue(searchText, 200);
 
@@ -37,6 +40,11 @@ function CodeBlockList({ codes = [], onDeleteUserQuery }) {
             words={debouncedSearchText}
             contextMenuId={`context-menu-${index}`}
             menuItems={[
+              {
+                id: 'copy',
+                label: 'Copy',
+                onOptionClick: (id) => copyToClipboard(query.query),
+              },
               {
                 id: 'explain',
                 label: 'Explain',

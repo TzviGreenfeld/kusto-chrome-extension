@@ -61,7 +61,7 @@ export default function CodeBlockContainer({
     });
   }
   if (!(typeof code === 'string')) {
-    console.log('KustoCodeBlock  code:', code);
+    console.error('KustoCodeBlock  code:', code);
   }
   const highlightedCode = highlightWord(code, words);
 

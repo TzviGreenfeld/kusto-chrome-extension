@@ -15,7 +15,6 @@ const shadow = newDiv.attachShadow({ mode: 'open' });
 const linkElem = document.createElement('link');
 linkElem.setAttribute('rel', 'stylesheet');
 // const linkUrl = chrome.runtime.getURL('tailwind.css');
-// console.log(linkUrl);
 // linkElem.setAttribute('href', linkUrl);
 shadow.appendChild(linkElem);
 document.body.appendChild(newDiv);
