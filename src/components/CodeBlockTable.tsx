@@ -16,7 +16,7 @@ const columns: GridColDef<CodeBlockTableRow>[] = [
   {
     field: 'code',
     headerName: 'CODE',
-    width: 750,
+    flex: 1,
     renderCell: (params) => (
       <SimpleKustoCodeBlock code={params.row.code} showLineNumbers={true} />
     ),
