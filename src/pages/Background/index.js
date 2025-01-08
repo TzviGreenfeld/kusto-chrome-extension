@@ -57,6 +57,6 @@ chrome.webRequest.onBeforeRequest.addListener(
       }
     }
   },
-  { urls: ['<all_urls>'] },
+  { urls: ['*://*/*kusto*/*'] },
   ['requestBody']
 );

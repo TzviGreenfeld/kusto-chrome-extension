@@ -2,8 +2,6 @@ import React, { useEffect, useMemo } from 'react';
 import Prism from 'prismjs';
 import { Menu, Item, useContextMenu } from 'react-contexify';
 
-import { BsClipboard } from 'react-icons/bs';
-
 import 'prismjs/components/prism-kusto';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 import 'prismjs/plugins/keep-markup/prism-keep-markup.js';

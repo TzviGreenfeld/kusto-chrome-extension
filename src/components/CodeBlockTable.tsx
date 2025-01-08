@@ -49,7 +49,7 @@ const CodeBlockTable: React.FC<CodeBlockTableProps> = ({
         rows={rows}
         columns={columns}
         initialState={{ pagination: { paginationModel } }}
-        pageSizeOptions={[5, 10]}
+        pageSizeOptions={[5, 10, 25]}
         // checkboxSelection
         sx={{ border: 0 }}
         columnVisibilityModel={{
