@@ -37,7 +37,7 @@ export function FormDialog({
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries(formData.entries());
-    onFormSubmit(formJson as UserData);
+    onFormSubmit({ name: formJson.name } as UserData);
     handleClose();
   };
 

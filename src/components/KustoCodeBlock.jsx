@@ -27,11 +27,7 @@ function KustoCodeBlock({ code, showLineNumbers = false }) {
     <div className="code-block-container">
       <pre>
         <code
-          // data-prismjs-copy="" // override the word "Copy"
-          // data-prismjs-copy-success="" // override the word "Copied!"
           className={`language-kusto keep-markup ${
-            // TODO: fix  code-content
-
             showLineNumbers ? 'line-numbers ' : ''
           }`}
           dangerouslySetInnerHTML={{ __html: code }}
