@@ -2,7 +2,10 @@ import React, { ChangeEvent } from 'react';
 import useExecutedQueries, {
   ExecutedQuery,
 } from '../../hooks/useExecutedQueries';
+
 import CodeBlockTable from '../../components/CodeBlockTable';
+import Header from '../../components/Header';
+
 import './Options.css';
 
 interface OptionsProps {
@@ -25,7 +28,7 @@ const Options: React.FC<OptionsProps> = ({ title }) => {
   return (
     <>
       <div className="options-container">
-        <span className="header">
+        {/* <span className="header">
           <h1>Executed Queries</h1>
           <label htmlFor="maxQueries" className="max-queries">
             Limit:
@@ -38,8 +41,8 @@ const Options: React.FC<OptionsProps> = ({ title }) => {
             value={maxQueriesToShow}
             onChange={handleMaxQueriesChange}
           />
-        </span>
-
+        </span> */}
+        <Header />
         <CodeBlockTable executedQueries={executedQueries as ExecutedQuery[]} />
       </div>
     </>

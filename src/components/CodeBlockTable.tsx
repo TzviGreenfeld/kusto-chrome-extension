@@ -15,7 +15,7 @@ interface CodeBlockTableRow {
 const columns: GridColDef<CodeBlockTableRow>[] = [
   {
     field: 'code',
-    headerName: 'CODE',
+    headerName: 'Query',
     flex: 1,
     renderCell: (params) => (
       <SimpleKustoCodeBlock code={params.row.code} showLineNumbers={true} />

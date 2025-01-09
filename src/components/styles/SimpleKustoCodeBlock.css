@@ -12,6 +12,8 @@
   height: 1.5rem !important;
   border-radius: 0.375rem !important;
   cursor: pointer !important;
+  /* opacity: 1 !important;
+  transition: none !important; */
 }
 
 .copy-to-clipboard-button:hover {
