@@ -43,7 +43,8 @@ function CodeBlockList({ codes = [], onDeleteUserQuery }) {
               {
                 id: 'copy',
                 label: 'Copy',
-                onOptionClick: (id) => copyToClipboard(query.query),
+                onOptionClick: () => copyToClipboard(query.query),
+                style: { backgroundColor: 'rgba(229, 231, 235, 1)' },
               },
               {
                 id: 'explain',
@@ -58,7 +59,8 @@ function CodeBlockList({ codes = [], onDeleteUserQuery }) {
               {
                 id: 'delete',
                 label: 'Delete',
-                onOptionClick: (id) => onDeleteUserQuery(index),
+                onOptionClick: () => onDeleteUserQuery(index),
+                style: { backgroundColor: 'rgba(255, 0, 0, 0.3)' },
               },
             ]}
           />
