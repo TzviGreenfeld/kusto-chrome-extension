@@ -15,6 +15,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import useLogin from '../hooks/useLogin';
 import { UserData } from '../hooks/useLogin';
+import useUserData from '../hooks/useUserData';
 
 export function FormDialog({
   onFormSubmit,
@@ -109,6 +110,8 @@ function LoginButton() {
 }
 
 export default function ButtonAppBar() {
+  const { userInfo, loading, error } = useUserData();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -132,7 +135,9 @@ export default function ButtonAppBar() {
             <BookmarkIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            {loading
+              ? 'loadiboiii'
+              : `${userInfo?.email} - ${userInfo?.id} - ${error}`}
           </Typography>
           <LoginButton />
         </Toolbar>
