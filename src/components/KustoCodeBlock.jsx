@@ -1,6 +1,7 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import Prism from 'prismjs';
-import { Menu, Item, useContextMenu } from 'react-contexify';
+
+import ContextMenuContainer from './ContextMenuContainer';
 
 import 'prismjs/components/prism-kusto';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
@@ -15,13 +16,9 @@ import 'react-contexify/dist/ReactContexify.css';
 import './styles/KustoCodeBlock.css';
 
 function KustoCodeBlock({ code, showLineNumbers = false }) {
-  const highlightedCode = useMemo(() => {
-    return Prism.highlight(code, Prism.languages.kusto, 'kusto');
-  }, [code]);
-
   useEffect(() => {
     Prism.highlightAll();
-  }, [highlightedCode]);
+  }, []);
 
   return (
     <div className="code-block-container">
@@ -30,8 +27,9 @@ function KustoCodeBlock({ code, showLineNumbers = false }) {
           className={`language-kusto keep-markup ${
             showLineNumbers ? 'line-numbers ' : ''
           }`}
-          dangerouslySetInnerHTML={{ __html: code }}
-        ></code>
+        >
+          {code}
+        </code>
       </pre>
     </div>
   );
@@ -44,40 +42,16 @@ export default function CodeBlockContainer({
   contextMenuId = 'default-context-menu',
   menuItems,
 }) {
-  const { show } = useContextMenu({ id: contextMenuId });
-
-  function handleContextMenu(event) {
-    show({
-      event,
-      props: {
-        key: 'value',
-      },
-    });
-  }
   if (!(typeof code === 'string')) {
     console.error('KustoCodeBlock  code:', code);
   }
-  const highlightedCode = highlightWord(code, words);
+  // const highlightedCode = highlightWord(code, words);
 
   return (
-    <>
-      <div className="container" onContextMenu={handleContextMenu}>
-        {title && <span className="title">{title}</span>}
-        <KustoCodeBlock code={highlightedCode} />
-        <Menu id={contextMenuId}>
-          {menuItems.map(({ id, label, onOptionClick }) => (
-            <Item
-              key={id}
-              id={id}
-              onClick={() => onOptionClick(id, code)}
-              className={`menu-item ${id}`}
-            >
-              {label}
-            </Item>
-          ))}
-        </Menu>
-      </div>
-    </>
+    <ContextMenuContainer contextMenuId={contextMenuId} menuItems={menuItems}>
+      {title && <span className="title">{title}</span>}
+      <KustoCodeBlock code={code} />
+    </ContextMenuContainer>
   );
 }
 
